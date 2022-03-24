@@ -1,5 +1,3 @@
-DROP TABLE IF EXISTS locations;
-DROP TABLE IF EXISTS attendees;
+DROP DATABASE IF EXISTS db_games;
 
-
-CREATE TABLE locations ()
+CREATE DATABASE db_games;
