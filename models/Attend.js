@@ -30,7 +30,7 @@ Attend.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Attend'
+    modelName: 'attend'
   }
 );
 
