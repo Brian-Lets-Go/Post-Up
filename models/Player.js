@@ -59,3 +59,5 @@ Player.init (
     modelName: 'player'
   }
 );
+
+module.exports = Player;

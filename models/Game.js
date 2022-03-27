@@ -37,3 +37,5 @@ class Game extends Model {
 
 
 }
+
+module.exports = Game;

@@ -1,26 +1,26 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Vote extends Model {}
+class Attend extends Model {}
 
-Vote.init(
+Attend.init(
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    user_id: {
+    player_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
+        model: 'player',
         key: 'id'
       }
     },
-    post_id: {
+    game_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'post',
+        model: 'game',
         key: 'id'
       }
     }
@@ -30,8 +30,8 @@ Vote.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'vote'
+    modelName: 'Attend'
   }
 );
 
-module.exports = Vote;
+module.exports = Attend;
