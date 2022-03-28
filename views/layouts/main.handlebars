@@ -15,8 +15,18 @@
         <a href="/">Post Up</a>
       </h1>
       <nav>
-      <a href="/login">login</a>
-    </nav>
+        {{#if loggedIn}}
+        <a href="/dashboard">dashboard</a>
+        <button id="logout" class="btn-no-style">logout</button>
+        {{else}}
+        <nav>
+          <a href="/login">login</a>
+        </nav>
+        <nav>
+          <a href="/signup">signup</a>
+        </nav>
+        {{/if}}
+      </nav>
     </header>
     <main>
       {{{ body }}}
