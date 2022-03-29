@@ -14,18 +14,20 @@
   </form>
 </section>
 
-{{#if posts.length}}
+{{#if game.length}}
 <section>
   <h2>Your Posted Games</h2>
   <ol>
-    {{#each posts as |post|}}
+    {{#each game as |game|}}
     <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+      <p>{{game.game_type}}</p>
+      <p>{{game.game_date}}</p>
+      <p>{{game.game_time}}</p>
+      <p>{{game.game_venue}}</p>
     </li>
     {{/each}}
   </ol>
 </section>
 {{/if}}
 
-<script src="/javascript/add-post.js"></script>
+<script src="/javascript/add-game.js"></script>
