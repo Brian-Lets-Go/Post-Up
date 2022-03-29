@@ -3,10 +3,16 @@ const router = require('express').Router();
 
 router.get('/', (req, res) => {
     res.render('homepage');
+    req.session.save(() => {
+        req.session.loggedIn = true;
+    });
 });
 
 router.get('/dashboard', (req, res) => {
     res.render('dashboard');
+    req.session.save(() => {
+        req.session.loggedIn = true;
+    });
 });
 
 router.get('/login', (req, res) => {
