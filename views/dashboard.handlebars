@@ -20,14 +20,12 @@
   <ol>
     {{#each game as |game|}}
     <li>
-      <p>{{game.game_type}}</p>
-      <p>{{game.game_date}}</p>
-      <p>{{game.game_time}}</p>
-      <p>{{game.game_venue}}</p>
+      {{> game-info game}}
+      <a href="/dashboard/edit/{{game.id}}" class="edit-link">Edit post</a>
     </li>
     {{/each}}
   </ol>
 </section>
 {{/if}}
 
-<script src="/javascript/add-game.js"></script>
+<script src="/javascript/add-post.js"></script>
