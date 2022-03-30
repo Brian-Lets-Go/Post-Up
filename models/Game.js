@@ -41,6 +41,10 @@ Game.init(
       primaryKey: true,
       autoIncrement: true
     },
+    game_title: {
+      type: DataTypes.STRING(50),
+      allowNull: false
+    },
     game_type: {
       type: DataTypes.STRING,
       allowNull: false
