@@ -14,14 +14,14 @@
   </form>
 </section>
 
-{{#if posts.length}}
+{{#if game.length}}
 <section>
   <h2>Your Posted Games</h2>
   <ol>
-    {{#each posts as |post|}}
+    {{#each game as |game|}}
     <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+      {{> game-info game}}
+      <a href="/dashboard/edit/{{game.id}}" class="edit-link">Edit post</a>
     </li>
     {{/each}}
   </ol>
