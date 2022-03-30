@@ -70,13 +70,13 @@ router.post('/', (req, res) => {
     email: req.body.email,
     password: req.body.password
   })
-    .then(dbUserData => {
+    .then(dbPlayerData => {
       req.session.save(() => {
-        req.session.user_id = dbUserData.id;
-        req.session.username = dbUserData.username;
+        req.session.player_id = dbPlayerData.id;
+        req.session.username = dbPlayerData.username;
         req.session.loggedIn = true;
   
-        res.json(dbUserData);
+        res.json(dbPlayerData);
       });
     })
     .catch(err => {
@@ -105,11 +105,11 @@ router.post('/login', (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.user_id = dbUserData.id;
+      req.session.player_id = dbUserData.id;
       req.session.username = dbUserData.username;
       req.session.loggedIn = true;
   
-      res.json({ user: dbUserData, message: 'You are now logged in!' });
+      res.json({ Player: dbUserData, message: 'You are now logged in!' });
     });
   });
 });

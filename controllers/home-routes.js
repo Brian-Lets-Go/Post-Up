@@ -2,17 +2,17 @@ const router = require('express').Router();
 
 
 router.get('/', (req, res) => {
-    res.render('homepage');
-    req.session.save(() => {
-        req.session.loggedIn = true;
+    res.render('homepage', {
+        loggedIn: req.session.loggedIn
     });
+    
 });
 
 router.get('/dashboard', (req, res) => {
-    res.render('dashboard');
-    req.session.save(() => {
-        req.session.loggedIn = true;
+    res.render('dashboard', {
+        player_id: req.session.player_id
     });
+
 });
 
 router.get('/login', (req, res) => {
@@ -20,12 +20,11 @@ router.get('/login', (req, res) => {
         res.redirect('/dashboard');
         return;
     }
-
     res.render('login');
 });
 
 router.get('/signup', (req, res) => {
-    if (req.session.signedUp) {
+    if (req.session.loggedIn) {
         res.redirect('/dashboard');
         return;
     }
