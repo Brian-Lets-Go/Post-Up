@@ -8,7 +8,7 @@ router.get('/', withAuth, (req, res) => {
     Game.findAll({
         attributes: [
           'id',
-          // 'game_title',
+          'game_title',
           'game_type',
           'game_date',
           'game_time',

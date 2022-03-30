@@ -5,14 +5,12 @@ router.get('/', (req, res) => {
     res.render('homepage', {
         loggedIn: req.session.loggedIn
     });
-    
 });
 
 router.get('/dashboard', (req, res) => {
     res.render('dashboard', {
         player_id: req.session.player_id
     });
-
 });
 
 router.get('/login', (req, res) => {
@@ -20,6 +18,7 @@ router.get('/login', (req, res) => {
         res.redirect('/dashboard');
         return;
     }
+
     res.render('login');
 });
 
