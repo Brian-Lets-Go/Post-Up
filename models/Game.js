@@ -19,6 +19,7 @@ class Game extends Model {
                 'game_date',
                 'game_time',
                 'game_venue',
+                
                 // [sequelize.literal('(SELECT COUNT(*) FROM attend WHERE game.id = attend.game_id)'), 'attend_count']
               ],
             //   include: [
