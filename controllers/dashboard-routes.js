@@ -27,5 +27,30 @@ router.get('/', withAuth, (req, res) => {
         });
     });
 
+//Display only the games a user has made
+router.get('/', withAuth, (req, res) => {
+  Game.findAll({
+    where: {
+      player_id: req.session.player_id
+    }
+      attributes: [
+        'id',
+        'game_title',
+        'game_type',
+        'game_date',
+        'game_time',
+        'game_venue'
+        // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE game.id = attened.game_id)'), 'attend_count']
+      ]
+    })
+      .then(dbGameData => {
+        res.render('dashboard', { game, loggedIn: true });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
 module.exports = router;
 
