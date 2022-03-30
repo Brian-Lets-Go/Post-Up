@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const { Game } = require('../../models');
+const { Game, Attend, Player } = require('../../models');
+const withAuth = require('../../utils/auth');
+const sequelize = require('../../config/connection');
 
 router.get('/', (req, res) => {
   Game.findAll()
@@ -42,6 +44,16 @@ router.delete('/:id', (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
+    });
+});
+
+router.put('/attend', withAuth, (req, res) => {
+    // custom static method created in models/Game.js
+    Game.attend({ ...req.body, player_id: req.session.player_id }, { Game, Attend, Player })
+      .then(updatedAttendData => res.json(updatedAttendData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
     });
 });
 
