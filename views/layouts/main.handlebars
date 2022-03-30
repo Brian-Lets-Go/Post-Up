@@ -15,8 +15,18 @@
         <a href="/">Post Up</a>
       </h1>
       <nav>
-      <a href="/login">login</a>
-    </nav>
+        {{#if loggedIn}}
+        <a href="/User">{{player.username}}</a>
+        <button id="logout" class="btn-no-style">Logout</button>
+        {{else}}
+        <nav>
+          <a href="/login">login</a>
+        </nav>
+        <nav>
+          <a href="/signup">signup</a>
+        </nav>
+        {{/if}}
+      </nav>
     </header>
     <main>
       {{{ body }}}
@@ -25,6 +35,7 @@
       Thanks for visiting!
     </footer>
   </div>
+
 
 </body>
 
