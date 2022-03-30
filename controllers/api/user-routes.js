@@ -11,6 +11,11 @@ const { Player, Game } = require('../../models');
 //     res.json('signup info');
 // });
 
+// find all function to display only the games a user has made
+router.get('/userposts', (req, res) => {
+  
+})
+
 // get all Players
 router.get('/', (req, res) => {
   Player.findAll({

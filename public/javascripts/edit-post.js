@@ -16,7 +16,8 @@ async function editFormHandler(event) {
     });
   
     if (response.ok) {
-      document.location.replace('/dashboard/');
+      // document.location.replace('/dashboard/');
+      document.location.replace('/C:\Users\Sarah Hart\Desktop\Projects\Post-Up-main\views\dashboard.handlebars/');
     } else {
       alert(response.statusText);
     }

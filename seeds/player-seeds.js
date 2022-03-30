@@ -8,6 +8,11 @@ const playerdata = [
     password: 'password123'
   },
   {
+    username: 'sarahhart',
+    email: 'sarahhart995@gmail.com',
+    password: 'password123'
+  },
+  {
     username: 'jwilloughway1',
     email: 'rmebes1@sogou.com',
     password: 'password123'
