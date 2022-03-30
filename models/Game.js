@@ -3,35 +3,33 @@ const sequelize = require('../config/connection');
 
 // create our Post model
 class Game extends Model {
-//   static upvote(body, models) {
-//     return models.Vote.create({
-//       user_id: body.user_id,
-//       post_id: body.post_id
-//     }).then(() => {
-//       return Post.findOne({
-//         where: {
-//           id: body.post_id
-//         },
-//         attributes: [
-//           'id',
-//           'post_url',
-//           'title',
-//           'created_at',
-//           [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-//         ],
-//         include: [
-//           {
-//             model: models.Comment,
-//             attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-//             include: {
-//               model: models.User,
-//               attributes: ['username']
-//             }
-//           }
-//         ]
-//       });
-//     });
-//   }
+        static attend(body, models) {
+          return models.Attend.create({
+            player_id: body.player_id,
+            game_id: body.game_id
+        })
+        .then(() => {
+            return Game.findOne({
+              where: {
+                id: body.game_id
+              },
+              attributes: [
+                'id',
+                'game_type',
+                'game_date',
+                'game_time',
+                'game_venue',
+                // [sequelize.literal('(SELECT COUNT(*) FROM attend WHERE game.id = attend.game_id)'), 'attend_count']
+              ],
+            //   include: [
+            //     {
+            //         model: models.Player,
+            //         attributes: ['username']
+            //     }
+            //   ]
+            });
+        });
+    }
 }
 
 // create fields/columns for Post model
