@@ -1,7 +1,8 @@
 <article class="post">
-    <div class="meta">
+    <div class="game-title">
         {{game_title}}
-        <br>
+    </div>
+    <div class="meta">
         Game Type: {{game_type}}
         <br>
         Game Date: {{game_date}}
@@ -11,7 +12,7 @@
         Location: {{game_venue}}
         <br>
         There are {{attend_count}} players showing up
-        <br>
+        |
         <button type="button" class="attend-btn" onclick="attendClickHandler(event)">Attend Game <span class="id-span" id="game-id-{{id}}" data-id="{{id}}">{{id}}</span></button>
         {{!-- Post created by {{player.username}} on {{format_date created_at}} --}}
         {{!-- <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a> --}}
