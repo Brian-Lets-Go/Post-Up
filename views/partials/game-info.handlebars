@@ -1,10 +1,8 @@
 <article class="post">
     <div class="title">
-        <a href="" target="_blank">{{title}}</a>
+        {{game_title}}
     </div>
     <div class="meta">
-        {{game_title}}
-        <br>
         Game Type: {{game_type}}
         <br>
         Game Date: {{game_date}}
@@ -13,10 +11,11 @@
         <br>
         Location: {{game_venue}}
         <br>
-
-        {{attend_count}} people voted attend on this game
-        |
-        <button type="button" class="attend-btn">Attend</button>
+        There are {{attend_count}} players showing up
+        <br>
+        <button type="button" class="attend-btn" onclick="attendClickHandler(event)">Attend Game <span class="id-span" id="game-id-{{id}}" data-id="{{id}}">{{id}}</span></button>
+        {{!-- Post created by {{player.username}} on {{format_date created_at}} --}}
         {{!-- <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a> --}}
+        <script src="/javascripts/attend.js"></script>
     </div>
 </article>
