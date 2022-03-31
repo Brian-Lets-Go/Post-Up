@@ -16,7 +16,7 @@ async function attendClickHandler(event) {
     const player = parseInt(params.get("id"))
     
     // console.log(player, game);
-  
+      
     const response = await fetch('/api/games/attend', {
       method: 'PUT',
       body: JSON.stringify({

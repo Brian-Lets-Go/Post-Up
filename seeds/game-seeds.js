@@ -2,7 +2,7 @@ const { Game } = require('../models');
 
 const gamedata = [
   {
-    game_title: "Basketball game need 2 more people",
+    game_title: "Basketball Game",
     game_type: "Basketball",
     game_date: "4/22/2022",
     game_time: "12:00",
