@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Game, Player} = require('../models');
+const { Game, Player, Attend } = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all games for dashboard
@@ -12,8 +12,8 @@ router.get('/', withAuth, (req, res) => {
           'game_type',
           'game_date',
           'game_time',
-          'game_venue'
-          // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE game.id = attened.game_id)'), 'attend_count']
+          'game_venue',
+          [sequelize.literal('(SELECT COUNT(*) FROM attend WHERE game.id = attend.game_id)'), 'attend_count']
         ]
       })
         .then(dbGameData => {
