@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "seeds": "node seeds/index.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "node seeds/index.js"
   },
   "repository": {
     "type": "git",
