@@ -1,34 +1,20 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Game, Player} = require('../models');
+const { Game, Player, Attend } = require('../models');
 const withAuth = require('../utils/auth');
 
+// get all games for dashboard
 router.get('/', withAuth, (req, res) => {
     Game.findAll({
-        where: {
-          // use the ID from the session
-          player_id: req.session.player_id
-        },
         attributes: [
           'id',
+          'game_title',
           'game_type',
+          'game_date',
           'game_time',
-          // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE game.id = attened.post_id)'), 'vote_count']
-        ],
-        // include: [
-        //   // {
-        //   //   model: Comment,
-        //   //   attributes: ['id', 'comment_text', 'game_id', 'player_id', 'created_at'],
-        //   //   include: {
-        //   //     model: Player,
-        //   //     attributes: ['username']
-        //   //   }
-        //   // },
-        //   {
-        //     model: Player,
-        //     attributes: ['username']
-        //   }
-        // ]
+          'game_venue',
+          [sequelize.literal('(SELECT COUNT(*) FROM attend WHERE game.id = attend.game_id)'), 'attend_count']
+        ]
       })
         .then(dbGameData => {
           // serialize data before passing to template

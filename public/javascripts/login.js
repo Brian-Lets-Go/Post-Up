@@ -1,11 +1,15 @@
 async function loginFormHandler(event) {
     event.preventDefault();
+ 
 
     const email = document.getElementById('email-login').value.trim();
+    console.log("blah 2", email);
     const password = document.getElementById('password-login').value.trim();
+    console.log("blah 3", password);
     console.log(email);
 
     if (email && password) {
+        console.log("blah if", email)
         const response = await fetch('/api/users/login', {
             method: 'post',
             body: JSON.stringify({
@@ -14,35 +18,14 @@ async function loginFormHandler(event) {
             }),
             headers: { 'Content-Type': 'application/json' }
         });
-
+        console.log("test")
         if (response.ok) {
-            document.location.replace('/dashboard');
-        } else {
-            alert(response.statusText);
-        }
-    }
-}
+            const json = await response.json()
+            console.log("zebra", json);
 
-async function signupFormHandler(event) {
-    event.preventDefault();
-
-    const username = document.querySelector('#username-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
-
-    if (username && email && password) {
-        const response = await fetch('/api/users', {
-            method: 'post',
-            body: JSON.stringify({
-                username,
-                email,
-                password
-            }),
-            headers: { 'Content-Type': 'application/json' }
-        });
-
-        if (response.ok) {
-            document.location.replace('/');
+            const id = json.Player.id;
+            console.log("lion");
+            document.location.replace(`/dashboard?id=${id}`);
         } else {
             alert(response.statusText);
         }

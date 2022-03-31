@@ -1,31 +1,45 @@
-<section>
-  <h2>Create New Post</h2>
-
-  <form class="new-post-form">
-    <div>
-      <label for="post-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
-    </div>
-    <div>
-      <label for="post-url">Link</label>
-      <input id="post-url" name="post-url" />
-    </div>
-    <button type="submit" class="btn">Create</button>
-  </form>
-</section>
-
 {{#if game.length}}
 <section>
-  <h2>Your Posted Games</h2>
-  <ol>
+  <h2>All Games</h2>
+  <ul>
     {{#each game as |game|}}
     <li>
       {{> game-info game}}
-      <a href="/dashboard/edit/{{game.id}}" class="edit-link">Edit post</a>
     </li>
+    <br>
     {{/each}}
-  </ol>
+  </ul>
 </section>
 {{/if}}
 
-<script src="/javascript/add-post.js"></script>
+{{#if game.length}}
+<section>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-4">
+        {{#each game as |game|}}
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="./img/soccer-field.jpeg" class="img-fluid rounded-start" alt="soccer field"
+                style="height: 100%">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <p class="card-text">{{game.game_date}} - {{game.game_time}}}</p>
+                <h5 class="card-title">Game Type: {{game.game_type}}</h5>
+                <p class="card-text">{{game.game_venu}}</p>
+                <p class="card-text d-inline me-1">
+                  <i class="bi bi-calendar-check-fill fs-5 d-inline"></i>
+                <p class="card-text d-inline"><small class="text-muted fs-6">{{game.atten_count}}</small></p>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</section>
+{{/if}}

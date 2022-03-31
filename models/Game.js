@@ -3,36 +3,42 @@ const sequelize = require('../config/connection');
 
 // create our Post model
 class Game extends Model {
-//   static upvote(body, models) {
-//     return models.Vote.create({
-//       user_id: body.user_id,
-//       post_id: body.post_id
-//     }).then(() => {
-//       return Post.findOne({
-//         where: {
-//           id: body.post_id
-//         },
-//         attributes: [
-//           'id',
-//           'post_url',
-//           'title',
-//           'created_at',
-//           [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-//         ],
-//         include: [
-//           {
-//             model: models.Comment,
-//             attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-//             include: {
-//               model: models.User,
-//               attributes: ['username']
-//             }
-//           }
-//         ]
-//       });
-//     });
-//   }
-}
+        static attend(req, models) {
+          return models.Attend.create({
+            player_id: req.body.player,
+            game_id: req.body.game
+        })
+        .then(() => {
+            return Game.findAll({
+              // where: {
+              //   id: body.game_id
+              // },
+              attributes: [
+                'id',
+                'game_title',
+                'game_type',
+                'game_date',
+                'game_time',
+                'game_venue',
+                
+                [sequelize.literal('(SELECT COUNT(*) FROM attend WHERE game.id = attend.game_id)'), 'attend_count']
+              ],
+              // include: [
+
+              //   [sequelize.literal('(SELECT COUNT(*) FROM attend WHERE game.id = attend.game_id)'), 'attend_count']
+              // //   {
+              // //       model: models.Player,
+              // //       attributes: ['username']
+              // //   }
+              // ],
+              // order: [
+              //   [sequelize.literal('attend_count'), 'DESC']
+              // ]
+            },
+          )
+      })
+    }
+  }
 
 // create fields/columns for Post model
 Game.init(
@@ -42,6 +48,10 @@ Game.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
+    },
+    game_title: {
+      type: DataTypes.STRING(50),
+      allowNull: false
     },
     game_type: {
       type: DataTypes.STRING,
