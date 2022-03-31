@@ -26,4 +26,12 @@ const Attend = require('./Attend');
 //     foreignKey: 'player_id'
 // })
 
+Game.hasMany(Attend, {
+    foreignKey: 'game_id'
+})
+
+Attend.belongsTo(Game, {
+    foreignKey: 'game_id'
+})
+
 module.exports = { Player, Game, Attend };
