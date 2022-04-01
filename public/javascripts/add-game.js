@@ -1,7 +1,7 @@
 async function newFormHandler(event) {
     event.preventDefault();
 
-    // const title = document.querySelector('input[name="game-title"]').value;
+    const title = document.querySelector('input[name="game-title"]').value;
     const type = document.querySelector('input[name="game-type"]').value;
     const date = document.querySelector('input[name="game-date"]').value;
     const time = document.querySelector('input[name="game-time"]').value;
@@ -10,19 +10,16 @@ async function newFormHandler(event) {
     const response = await fetch(`/api/game-routes`, {
         method: 'POST',
         body: JSON.stringify({
-            //   title,
+            title,
             type,
             date,
             time,
             venue
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        })
     });
 
     if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/profile');
     } else {
         alert(response.statusText);
     }
