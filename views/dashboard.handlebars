@@ -1,0 +1,14 @@
+{{#if game.length}}
+<section>
+  <h2>All Games</h2>
+  <ul>
+    {{#each game as |game|}}
+    <li>
+      {{> game-info game}}
+    </li>
+    <br>
+    {{/each}}
+  </ul>
+</section>
+{{/if}}
+

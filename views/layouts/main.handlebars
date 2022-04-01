@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Post Up</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
+
 </head>
 
 <body>
@@ -15,8 +16,18 @@
         <a href="/">Post Up</a>
       </h1>
       <nav>
-      <a href="/login">login</a>
-    </nav>
+        {{#if loggedIn}}
+        <a href="/User">{{player.username}}</a>
+        <button id="logout" class="btn-no-style">Logout</button>
+        {{else}}
+        <nav>
+          <a href="/login">login</a>
+        </nav>
+        <nav>
+          <a href="/signup">signup</a>
+        </nav>
+        {{/if}}
+      </nav>
     </header>
     <main>
       {{{ body }}}
@@ -26,6 +37,8 @@
     </footer>
   </div>
 
+
 </body>
+
 
 </html>
