@@ -20,7 +20,7 @@ router.get('/', withAuth, (req, res) => {
             'game_type',
             'game_date',
             'game_time',
-            'game_venue',
+            'game_venue'//,
         //     [sequelize.literal('(SELECT COUNT(*) FROM attend WHERE game.id = attend.game_id)'), 'attend_count']
         ],
         // include: [
@@ -39,8 +39,9 @@ router.get('/', withAuth, (req, res) => {
         // ]
     })
         .then(dbGameData => {
+            console.log(dbGameData, 'dbGameData logged');
             const posts = dbGameData.map(game => game.get({ plain: true }));
-            res.render('profile', { posts, loggedIn: true });
+            res.render('profile', { posts, loggedIn: req.session.loggedIn });
         })
         .catch(err => {
             console.log(err);
