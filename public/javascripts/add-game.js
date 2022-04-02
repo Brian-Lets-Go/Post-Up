@@ -1,13 +1,13 @@
 async function newFormHandler(event) {
     event.preventDefault();
 
-    const title = document.querySelector('input[name="game-title"]').value;
-    const type = document.querySelector('input[name="game-type"]').value;
-    const date = document.querySelector('input[name="game-date"]').value;
-    const time = document.querySelector('input[name="game-time"]').value;
-    const venue = document.querySelector('input[name="game-venue"]').value;
+    const title = document.querySelector('#game-title').value;
+    const type = document.querySelector('#game-type').value;
+    const date = document.querySelector('#game-date').value;
+    const time = document.querySelector('#game-time').value;
+    const venue = document.querySelector('#game-venue').value;
 
-    const response = await fetch(`/api/game-routes`, {
+    const response = await fetch(`/api/games`, {
         method: 'POST',
         body: JSON.stringify({
             title,
@@ -15,11 +15,18 @@ async function newFormHandler(event) {
             date,
             time,
             venue
-        })
+        }),
+        headers: { 'Content-Type': 'application/json' }
     });
 
     if (response.ok) {
-        document.location.replace('/profile');
+        const json = await response.json()
+        console.log("zebra", json);
+
+
+        console.log("lion");
+        document.location.replace(`/profile`);
+        
     } else {
         alert(response.statusText);
     }

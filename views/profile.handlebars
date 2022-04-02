@@ -30,7 +30,7 @@
 <section>
   <h2>Your Posted Games</h2>
   <ol>
-    {{#each game as |game|}}
+    {{#each posts as |game|}}
     <li>
       {{> game-info game}}
       <a href="/dashboard/edit/{{game.id}}" class="edit-link">Edit post</a>

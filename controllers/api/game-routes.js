@@ -14,12 +14,13 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   // expects =>   { "game_type": "Baseball", "game_date": "5/25/2022", "game_time": "19:00", "game_venue": "East Side Park", "player_id": 2 },
+  console.log(req.body);
   Game.create({
-    game_title: req.body.game_title,
-    game_type: req.body.game_type,
-    game_date: req.body.game_date,
-    game_time: req.body.game_time,
-    game_venue: req.body.game_venue,
+    game_title: req.body.title,
+    game_type: req.body.type,
+    game_date: req.body.date,
+    game_time: req.body.time,
+    game_venue: req.body.venue,
     player_id: req.session.player_id,
   })
     .then(dbGameData => res.json(dbGameData))
