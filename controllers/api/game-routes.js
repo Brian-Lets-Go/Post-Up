@@ -4,6 +4,8 @@ const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
 
 router.get('/', (req, res) => {
+
+  console.log('hi')
   Game.findAll()
     .then(dbGameData => res.json(dbGameData))
     .catch(err => {

@@ -4,7 +4,7 @@ const gamedata = [
   {
     game_title: "Basketball Game",
     game_type: "Basketball",
-    game_date: "2022-04-05",
+    game_date: "2022-09-05",
     game_time: "12:00",
     game_venue: "Thompkins Square Park",
     player_id: 1
@@ -20,7 +20,7 @@ const gamedata = [
   {
     game_title: "Softball game",
     game_type: "Softball",
-    game_date: "2022-04-12",
+    game_date: "2022-07-12",
     game_time: "19:00",
     game_venue: "Buddy Keaton Field",
     player_id: 3
@@ -36,7 +36,7 @@ const gamedata = [
   {
     game_title: "Basketball game",
     game_type: "Basketball",
-    game_date: "2022-04-18",
+    game_date: "2022-02-18",
     game_time: "18:00",
     game_venue: "W 4th Street",
     player_id: 5

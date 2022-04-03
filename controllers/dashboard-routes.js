@@ -17,8 +17,22 @@ router.get('/', withAuth, (req, res) => {
         ]
       })
         .then(dbGameData => {
-          // serialize data before passing to template
+
           const game = dbGameData.map(game => game.get({ plain: true }));
+
+          const sortedGames = game.sort(function(a, b) {
+            const nameA = a.game_date;
+            const nameB = b.game_date;
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+          
+            // names must be equal
+            return 0;
+          });
           res.render('dashboard', { game, loggedIn: true });
         })
         .catch(err => {

@@ -1,12 +1,16 @@
+<div>
 <section>
-  <h2>All Games</h2>
-  <ul class="game-list">
-    {{#each game as |game|}}
-    <li>
-      {{> game-info game}}
-    </li>
-    <br>
-    {{/each}}
-  </ul>
+  <h2 class="all-games">All Games</h2>
+    <ul class="game-list">  
+      <div class="row">
+      {{#each game as |game|}}
+      <li>
+        {{> game-info game}}
+      </li>
+      {{/each}}
+      </div>
+    </ul>
+  </div>
 </section>
+
 

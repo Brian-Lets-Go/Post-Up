@@ -6,17 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Post Up</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link type="text/css" rel="stylesheet" href="/stylesheets/materialize.min.css"  media="screen,projection"/>
   <link rel="stylesheet" href="/stylesheets/style.css">  
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body>
   <div class="wrapper">
     <header>
+      <div class="container">
+        <div class="row"></div>
+      <div class="s12 m6">
       <h1>
-        <a href="/dashboard">Post Up</a>
+        <a class="" href="/dashboard">Post Up</a>
       </h1>
-      <nav class="dashboard-nav">
+      </div>
+      <div class="s12 m6"></div>
+      <div class="">
         {{#if loggedIn}}
         <a href="/profile">User Profile</a>
         <button id="logout" class="btn-no-style">Logout</button>
@@ -26,7 +32,10 @@
           <a href="/signup">signup</a>
         </nav>
         {{/if}}
-      </nav>
+      </div>
+      </div>
+      </div>
+      </div>
     </header>
     <main>
       {{{ body }}}
@@ -40,6 +49,7 @@
 </body>
 {{#if loggedIn}}
 <script src="/javascripts/logout.js"></script>
+<script type="text/javascript" src="/stylesheets/materialize.min.js"></script>
 {{/if}}
 
 </html>
