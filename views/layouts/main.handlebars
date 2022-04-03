@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Post Up</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">  
 
 </head>
 
@@ -13,7 +14,7 @@
   <div class="wrapper">
     <header>
       <h1>
-        <a href="/">Post Up</a>
+        <a href="/dashboard">Post Up</a>
       </h1>
       <nav class="dashboard-nav">
         {{#if loggedIn}}
@@ -37,6 +38,9 @@
 
 
 </body>
-
+{{#if loggedIn}}
+<script src="/javascripts/logout.js"></script>
+{{/if}}
 
 </html>
+
