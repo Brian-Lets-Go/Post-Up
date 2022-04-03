@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Brian-Lets-Go/Post-Up#readme",
   "dependencies": {
+    "array-unique": "^0.3.2",
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^16.0.0",

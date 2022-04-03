@@ -3,16 +3,16 @@ const sequelize = require('../config/connection');
 
 // create our Post model
 class Game extends Model {
-        static attend(req, models) {
+        static attend(body, models) {
           return models.Attend.create({
-            player_id: req.body.player,
-            game_id: req.body.game
+            player_id: body.player_id,
+            game_id: body.game
         })
         .then(() => {
-            return Game.findAll({
-              // where: {
-              //   id: body.game_id
-              // },
+            return Game.findOne({
+                 where: {
+                 id: body.game
+              },
               attributes: [
                 'id',
                 'game_title',

@@ -12,7 +12,7 @@ Attend.init(
     },
     player_id: {
       type: DataTypes.INTEGER,
-      references: {
+        references: {
         model: 'player',
         key: 'id'
       }
