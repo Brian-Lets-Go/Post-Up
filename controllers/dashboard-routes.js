@@ -28,7 +28,7 @@ router.get('/', withAuth, (req, res) => {
     });
 
 //Display only the games a user has made
-router.get('/', withAuth, (req, res) => {
+router.get('/yourgames', withAuth, (req, res) => {
   Game.findAll({
     where: {
       player_id: req.session.player_id
