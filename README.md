@@ -13,7 +13,7 @@
   ## [Description](#table-of-contents)
   Post-Up is an app that lets users see local pick up athletic games and decide if they are going to attend. Attendance is recorded and other users can see how many people are showing up. 
 
-  The project can be found at the following link:
+  The project can be found at the following link: [Heroku Link](https://guarded-waters-75502.herokuapp.com/)
 
   New library is Materialize for styling
 
