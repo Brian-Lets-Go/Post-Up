@@ -12,15 +12,14 @@ async function attendClickHandler(event) {
 
     // console.log("game", game)
 
-    let params = new URLSearchParams(document.location.search)
-    const player = parseInt(params.get("id"))
+    //let params = new URLSearchParams(document.location.search)
+    //const player = session.player_id;
     
     // console.log(player, game);
       
     const response = await fetch('/api/games/attend', {
       method: 'PUT',
       body: JSON.stringify({
-        player,
         game
       }),
       headers: {

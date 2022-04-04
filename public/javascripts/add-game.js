@@ -7,6 +7,19 @@ async function newFormHandler(event) {
     const time = document.querySelector('#game-time').value;
     const venue = document.querySelector('#game-venue').value;
 
+
+// CODE TO CHANGE THE DATE FORMAT, STILL WORK IN PROGRESS
+
+    // document.querySelector("#game-date").value.addEventListener("change", function() {
+    //     this.setAttribute(
+    //         "data-date",
+    //         moment(this.value, "YYYY-MM-DD")
+    //         .format( this.getAttribute("data-date-format") )
+    //     )
+    // })
+    // const date = document.getAttribute('data-date');
+    // console.log(date);
+    
     const response = await fetch(`/api/games`, {
         method: 'POST',
         body: JSON.stringify({

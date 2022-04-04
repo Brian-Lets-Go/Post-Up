@@ -1,23 +1,31 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Attend extends Model {}
+class Comment extends Model {}
 
-Attend.init(
+Comment.init(
   {
     id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    player_id: {
+    comment_text: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    user_id: {
       type: DataTypes.INTEGER,
-        references: {
+      references: {
         model: 'player',
         key: 'id'
       }
     },
-    game_id: {
+    post_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'game',
@@ -27,11 +35,10 @@ Attend.init(
   },
   {
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'attend'
+    modelName: 'comment'
   }
 );
-
-module.exports = Attend;
+ 
+module.exports = Comment;

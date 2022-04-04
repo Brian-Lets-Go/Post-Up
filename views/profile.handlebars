@@ -1,43 +1,47 @@
 <section>
-  <h2>Create New Game</h2>
+  <h2 class="user-h2">Create New Game</h2>
 
   <form class="new-game-form">
     <div>
-      <label for="game-title">Title</label>
+      <label class="game-title" for="game-title">Title</label>
       <input type="text" id="game-title" name="game-title" />
     </div>
     <div>
-      <label for="game-type">Type</label>
+      <label class="game-type" for="game-type">Type</label>
       <input type="text" id="game-type" name="game-type" />
     </div>
     <div>
-      <label for="game-date">Date</label>
-      <input id="game-date" name="game-date" />
+      <label class="game-date" for="game-date">Date</label>
+      <input id="game-date" type="date" name="game-date" />
+
+      {{!-- This is part of the date format work in progress --}}
+      {{!-- <input type="date" data-date="" data-date-format="MM/DD/YYYY"> --}}
     </div>
     <div>
-      <label for="game-time">Time</label>
-      <input id="game-time" name="game-time" />
+      <label class="game-time" for="game-time">Time</label>
+      <input id="game-time" type="time" min="00:00" max="24:00" name="game-time" />
     </div>
     <div>
-      <label for="game-venue">Location</label>
+      <label class="game-venue" for="game-venue">Location</label>
       <input type="text" id="game-venue" name="game-venue" />
     </div>
     <button type="submit" class="btn">Create</button>
   </form>
 </section>
 
-{{!-- {{#if game.length}} --}}
 <section>
-  <h2>Your Posted Games</h2>
-  <ol>
+  <h2 class="posted-games">Your Posted Games</h2>
+  <ol class="user-games">
+    <div class="row">
     {{#each posts as |game|}}
     <li>
       {{> game-info game}}
-      <a href="/dashboard/edit/{{game.id}}" class="edit-link">Edit post</a>
+      {{!-- <a href="/dashboard/edit/{{game.id}}" class="edit-link">Edit post</a> --}}
     </li>
+    </div>
     {{/each}}
   </ol>
 </section>
-{{!-- {{/if}} --}}
 
 <script src="/javascripts/add-game.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

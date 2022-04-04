@@ -4,6 +4,8 @@ const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
 
 router.get('/', (req, res) => {
+
+  console.log('hi')
   Game.findAll()
     .then(dbGameData => res.json(dbGameData))
     .catch(err => {
@@ -53,7 +55,7 @@ router.delete('/:id', (req, res) => {
 router.put('/attend', withAuth, (req, res) => {
 
     // custom static method created in models/Game.js
-    Game.attend(req, { Game, Attend, Player })
+    Game.attend({...req.body, player_id: req.session.player_id}, { Game, Attend, Player })
 
       .then(updatedAttendData => res.json(updatedAttendData))
       .catch(err => {
